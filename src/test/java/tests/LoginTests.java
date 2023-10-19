@@ -26,4 +26,20 @@ public class LoginTests extends BasicTest {
         Assert.assertEquals(loginPage.getPasswordInputType(), "password",
                 "The attribute type for email field should be 'password'.");
     }
+
+    @Test (priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenUserDoesNotExist () {
+        String email = "non-existing-user@gmal.com";
+        String password = "password123";
+
+        navPage.clickOnLoginButton();
+        loginPage.login(email,password);
+        messagePopUpPage.waitForErrorPopUpToBeVisible();
+
+        Assert.assertEquals(messagePopUpPage.getErrorMessageText(), "User does not exists",
+                "Error message should be 'User does not exists'.");
+
+        Assert.assertTrue(pageUrl.isLoginPage(),
+                "Should be redirected to the Login page.");
+    }
 }
