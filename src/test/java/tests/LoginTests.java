@@ -24,7 +24,7 @@ public class LoginTests extends BasicTest {
                 "The attribute type for email field should be 'email'.");
 
         Assert.assertEquals(loginPage.getPasswordInputType(), "password",
-                "The attribute type for email field should be 'password'.");
+                "The attribute type for password field should be 'password'.");
     }
 
     @Test (priority = 3, retryAnalyzer = RetryAnalyzer.class)
