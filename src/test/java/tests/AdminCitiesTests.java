@@ -84,4 +84,27 @@ public class AdminCitiesTests extends BasicTest {
         Assert.assertEquals(citiesPage.getTextFromTheField(1,2), newCityName,
                 "City name in the field should be " + newCityName);
     }
+
+    @Test (priority = 6, retryAnalyzer = RetryAnalyzer.class)
+    public void deleteCity () {
+        String newCityName = "Lazar Trajkovic's city Edited";
+
+        navPage.clickOnAdminButton();
+        navPage.clickOnAdminCitiesButton();
+
+        citiesPage.clearAndTypeInSearch(newCityName);
+        citiesPage.waitForNumberOfTableRows(1);
+
+        Assert.assertEquals(citiesPage.getTextFromTheField(1,2), newCityName,
+                "City name in the field should be " + newCityName);
+
+        citiesPage.clickOnDeleteButtonFromTableRow(1);
+        citiesPage.waitForDeleteDialog();
+        citiesPage.clickOnDeleteButtonFromDialog();
+
+        messagePopUpPage.waitForSuccessfullyPopUpMessage();
+        Assert.assertTrue(messagePopUpPage.getSuccessfullyPopUpMessageText()
+                        .contains("Deleted successfully"),
+                "Success pop-up message should contain 'Deleted successfully'");
+    }
 }
