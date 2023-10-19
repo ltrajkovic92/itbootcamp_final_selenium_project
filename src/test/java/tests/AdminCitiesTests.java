@@ -31,4 +31,22 @@ public class AdminCitiesTests extends BasicTest {
         Assert.assertEquals(citiesPage.getNameInputType(), "text",
                 "The attribute type for name field should be 'text'.");
     }
+
+    @Test (priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void createNewCity () {
+        String cityName = "Lazar Trajkovic's city";
+
+        navPage.clickOnAdminButton();
+        navPage.clickOnAdminCitiesButton();
+        citiesPage.clickOnNewItemButton();
+        citiesPage.waitForCreateOrEditDialog();
+
+        citiesPage.clearAndTypeName(cityName);
+        citiesPage.clickOnSaveButton();
+
+        messagePopUpPage.waitForSuccessfullyPopUpMessage();
+        Assert.assertTrue(messagePopUpPage.getSuccessfullyPopUpMessageText()
+                .contains("Saved successfully"),
+                "Success pop-up message should contain 'Saved successfully'");
+    }
 }
