@@ -41,4 +41,13 @@ public class LocaleTests extends BasicTest {
         Assert.assertEquals(landingPage.getHeaderText(), landingPage.expectedFrHeaderText,
                 "Text in header should be " + landingPage.expectedFrHeaderText);
     }
+
+    @Test (priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToUa () {
+        navPage.clickOnLanguagesButton();
+        navPage.clickOnUaLanguageButton();
+
+        Assert.assertEquals(landingPage.getHeaderText(), landingPage.expectedUaHeaderText,
+                "Text in header should be " + landingPage.expectedUaHeaderText);
+    }
 }

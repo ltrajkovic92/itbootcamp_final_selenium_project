@@ -40,6 +40,12 @@ public class NavPage extends BasicPage{
     public void clickOnFrLanguageButton () {
         getFrLanguageButton().click();
     }
+    public WebElement getUaLanguageButton () {
+        return driver.findElement(By.className("btnUA"));
+    }
+    public void clickOnUaLanguageButton () {
+        getUaLanguageButton().click();
+    }
     public WebElement getLoginButton () {
         return driver.findElement(By.cssSelector("[href='/login'].btnLogin"));
     }

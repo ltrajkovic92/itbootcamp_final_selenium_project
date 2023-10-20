@@ -10,6 +10,7 @@ public class LandingPage extends BasicPage {
     public String expectedEnHeaderText = "Landing";
     public String expectedCnHeaderText = "首页";
     public String expectedFrHeaderText = "Page d'atterrissage";
+    public String expectedUaHeaderText = "Лендінг";
 
     public LandingPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
