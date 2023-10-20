@@ -23,4 +23,13 @@ public class LocaleTests extends BasicTest {
         Assert.assertEquals(landingPage.getHeaderText(), landingPage.expectedEnHeaderText,
                 "Text in header should be " + landingPage.expectedEnHeaderText);
     }
+
+    @Test (priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToCn () {
+        navPage.clickOnLanguagesButton();
+        navPage.clickOnCnLanguageButton();
+
+        Assert.assertEquals(landingPage.getHeaderText(), landingPage.expectedCnHeaderText,
+                "Text in header should be " + landingPage.expectedCnHeaderText);
+    }
 }
