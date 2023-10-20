@@ -36,4 +36,7 @@ public class PageUrl extends BasicPage{
     public boolean isAdminCitiesPage () {
         return isPage(adminCitiesPage);
     }
+    public boolean isProfilePage () {
+        return isPage(profilePage);
+    }
 }
