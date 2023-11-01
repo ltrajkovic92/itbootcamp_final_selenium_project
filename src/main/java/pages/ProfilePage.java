@@ -57,6 +57,7 @@ public class ProfilePage extends BasicPage {
         return getCountryInput().getAttribute("value");
     }
     public void clearAndTypeCountry (String country) {
+        getCountryInput().click();
         getCountryInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),country);
     }
     public WebElement getTwitterInput () {
